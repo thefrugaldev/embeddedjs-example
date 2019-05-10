@@ -1,0 +1,42 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <div class="row">
+        <div class="col-sm-8"> 
+            <div class="jumbotron">
+                <h1>Orders</h1>
+                <ol>
+                    <% orders.forEach((order) => { %>
+                        <li>
+                            <strong>Order Id: <%= order.id %></strong>
+                            <ul>
+                                <% order.contents.forEach((item) => { %>                                    
+                                    <li><%= item %></li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %>
+                </ol>
+            </div>
+        </div>        
+        <% include ../partials/sidebar %>
+    </div>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
